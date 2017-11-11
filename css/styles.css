@@ -133,6 +133,11 @@ label {
     margin: 6px 0;
 }
 
+#map {
+  width: auto;
+  height: 500px;
+}
+
 button {
     text-transform: none;
     -webkit-appearance: none;

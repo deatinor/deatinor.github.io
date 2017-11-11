@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 463);
+/******/ 	return __webpack_require__(__webpack_require__.s = 464);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -41864,7 +41864,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //# sourceMappingURL=leaflet-src.js.map
 
 /***/ }),
-/* 463 */
+/* 463 */,
+/* 464 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41880,55 +41881,20 @@ var L = _interopRequireWildcard(_leaflet);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-/* let calculateMonthlyPayment = (principal, years, rate) => { */
-//     let monthlyRate=0;
-//     if (rate) {
-//         monthlyRate = rate / 100 / 12;
-//     }
-//     let monthlyPayment = principal * monthlyRate / (1 - (Math.pow(1 / (1 + monthlyRate), years * 12)));
-//     return {principal,years,rate,monthlyPayment,monthlyRate};
-// };
-//
-// let calculateAmmortization = (principal,years,rate) => {
-//     let {monthlyRate,monthlyPayment}=calculateMonthlyPayment(principal,years,rate)
-//     let balance=principal
-//     let ammortization=[]
-//
-//     for (let y=0; y<years; y++) {
-//         let interestY=0
-//         let principalY=0
-//
-//         for (let m=0; m<12; m++) {
-//             let interestM=balance*monthlyRate
-//             let principalM=monthlyPayment - interestM
-//
-//             interestY=interestY+interestM
-//             principalY=principalY+principalM
-//
-//             balance=balance-principalM
-//         }
-//         ammortization.push({principalY,interestY,balance})
-//     }
-//     return {monthlyPayment,monthlyRate,ammortization}
-//
-/* } */
+// Initialize the map
+var map = L.map('map', {
+	scrollWheelZoom: false
+});
 
-d3.selectAll("div").style('color', 'red');
+// Set the position and zoom level of the map
+map.setView([47.70, 13.35], 7);
 
-// d3.select('#map').append(map)
-
-// document.getElementById('calcBtn').addEventListener('click', () => {
-//     let principal = document.getElementById("principal").value;
-//     let years = document.getElementById("years").value;
-//     let rate = document.getElementById("rate").value;
-//     let {monthlyRate,monthlyPayment,ammortization} = calculateAmmortization(principal, years, rate);
-//     // console.log(monthlyRate);
-//     document.getElementById("monthlyPayment").innerHTML = monthlyPayment.toFixed(2);
-//     document.getElementById("monthlyRate").innerHTML = (monthlyRate * 100).toFixed(2);
-//     ammortization.forEach(month => console.log(month))
-//
-// });
+// Initialize the base layer
+var osm_mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; OSM Mapnik <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.bundle.js.map
+//# sourceMappingURL=leaflet.bundle.js.map
