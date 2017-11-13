@@ -4,7 +4,8 @@ var path = require('path');
  module.exports = {
      entry: {
          main:'./js/main.js',
-         leaflet:'./js/leaflet.js'
+         leaflet:'./js/leaflet.js',
+         map:'./js/map.js'
      },
      output: {
          path: path.resolve(__dirname, 'build'),
