@@ -1,10 +1,10 @@
 var path = require('path');
- var webpack = require('webpack');
+var webpack = require('webpack');
 
  module.exports = {
      entry: {
          main:'./js/main.js',
-         leaflet:'./js/leaflet.js',
+         // leaflet:'./js/leaflet.js',
          map:'./js/map.js'
      },
      output: {

@@ -1,5 +1,6 @@
-import * as d3 from 'd3'
-import * as L from 'leaflet'
+// import * as d3 from 'd3'
+// import * as L from 'leaflet'
+import 'leaflet.elevation/dist/Leaflet.Elevation-0.0.2.min.js'
 
 
 // Initialize the map
@@ -12,129 +13,11 @@ map.setView([46.505, 6.63], 13);
 
 // Adding all the possible layers
 
-// Base layer
-var osm_mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; OSM Mapnik <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
-
-// Other layers
-var osm_bw_mapnik = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-	maxZoom: 18,
-	attribution: '&copy; OSM Black and White Mapnik<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
-
-var osm_de = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
-	maxZoom: 18,
-	attribution: '&copy; OSM Deutschland <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
-
-var osm_fr = L.tileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-	maxZoom: 20,
-	attribution: '&copy; OSM France | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
-
-var osm_hot = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; OSM Hot <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
-});
-
-var osm_topo = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-	maxZoom: 17,
-	attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-});
-
-var stamen_Toner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 20,
-	ext: 'png'
-});
-
-var stamen_TonerBackground = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 20,
-	ext: 'png'
-});
-
-var stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 20,
-	ext: 'png'
-});
-
-var stamen_Watercolor = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-	subdomains: 'abcd',
-	minZoom: 1,
-	maxZoom: 16,
-	ext: 'png'
-});
-
-var stamen_Terrain = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 18,
-	ext: 'png'
-});
-
-var stamen_TerrainBackground = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 18,
-	ext: 'png'
-});
-
-var esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-});
-
-var esri_WorldTerrain = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
-	maxZoom: 13
-});
-
-var esri_NatGeoWorldMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-	maxZoom: 16
-});
-
-
 var osmOrg=L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 
-
-// Create base layers group object
-var baseLayers = {
-	"OSM Mapnik": osm_mapnik,
-	"OSM Black White Mapnik": osm_bw_mapnik,
-	"OSM Germany": osm_de,
-	"OSM France": osm_fr,
-	"OSM Hot": osm_hot,
-	"OSm Topo": osm_topo,
-	"Stamen Toner": stamen_Toner,
-	"Stamen Toner Background": stamen_TonerBackground,
-	"Stamen Toner Lite": stamen_TonerLite,
-	"Stamen Watercolor": stamen_Watercolor,
-	"Stamen Terrain": stamen_Terrain,
-	"Stamen Terrain Background": stamen_TerrainBackground,
-	"ESRI World Imagery": esri_WorldImagery,
-	"ESRI World Terrain": esri_WorldTerrain,
-	"ESRI National Geographic": esri_NatGeoWorldMap,
-    "OSM": osmOrg
-};
-
-// Add baseLayers to the map
-// L.control.layers(baseLayers, null).addTo(map);
 
 
 
@@ -160,7 +43,54 @@ let mapClick= e => {
         .openOn(map)
 }
 
-omnivore.gpx('gps_data/Demi-marathonLausanne.gpx').addTo(map)
+let halfMarathon=omnivore.gpx('gps_data/Demi-marathonLausanne.gpx')
+// halfMarathon.addTo(map)
+
+let el=L.control.elevation()
+el.addTo(map)
+
+var gpx = 'gps_data/Demi-marathonLausanne.gpx' // URL to your GPX file or the GPX itself
+let track=new L.GPX(gpx, 
+    {
+        async: true,
+        marker_options: {
+            startIconUrl: 'images/pin-icon-start.png',
+            endIconUrl: 'images/pin-icon-end.png',
+            shadowUrl: 'images/pin-shadow.png'
+  }})
+    
+    
+track.on('loaded', function(e) {
+  map.fitBounds(e.target.getBounds());
+    console.log(e.target.get_name())
+    console.log(e.target.get_distance())
+    console.log(e.target.get_total_time())
+}).addTo(map);
+
+
+let line=0
+
+track.on('addline', e=> {
+    line=e.line
+    console.log(line._latlngs)
+})
+
+// track.on('addline', e => {
+//     el.addData(e.line)
+// })
+
+// var g=new L.GPX("gps_data/Demi-marathonLausanne.gpx", {async: true});
+// g.on("addline",function(e){
+//     el.addData(e.line);
+// });
+// g.on("addline",function(e){
+//     el.addData(e.line);
+// });
+// g.addTo(map);
+//
+
+d3.select('body').append('p').text(track.get_total_time())
+
 
 map.scrollWheelZoom.enable()
 map.on('click',mapClick)
